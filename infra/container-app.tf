@@ -34,17 +34,32 @@ resource "azurerm_container_app" "container_app" {
   }
 
   identity {
-    type = "SystemAssigned"
+    type = "UserAssigned"
+
+    identity_ids = [
+      azurerm_user_assigned_identity.container_app.id
+    ]
   }
 
   registry {
     server   = azurerm_container_registry.acr.login_server
-    identity = "System"
+    identity = azurerm_user_assigned_identity.container_app.id
+  }
+}
+
+resource "azurerm_user_assigned_identity" "container_app" {
+  name                = "${var.project_name}-${var.environment}-identity"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = azurerm_resource_group.main.location
+
+  tags = {
+    environment = var.environment
+    src         = var.src_key
   }
 }
 
 resource "azurerm_role_assignment" "container_app_acr_pull" {
   scope                = azurerm_container_registry.acr.id
   role_definition_name = "AcrPull"
-  principal_id         = azurerm_container_app.container_app.identity[0].principal_id
+  principal_id         = azurerm_user_assigned_identity.container_app.principal_id
 }
