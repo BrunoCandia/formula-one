@@ -70,5 +70,4 @@ jobs:
           containerAppName: formula-one-system-dev-aca
           containerAppEnvironment: formula-one-system-dev-acae
           resourceGroup: formula-one-system-dev-rg
-          environmentVariables: |
-            ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 ConnectionStrings__DefaultConnectionMsSql=${{ secrets.DATABASE_CONNECTION_STRING }}
+          environmentVariables: 'ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 ConnectionStrings__DefaultConnectionMsSql=${{ secrets.DATABASE_CONNECTION_STRING }}'
