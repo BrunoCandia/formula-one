@@ -421,8 +421,11 @@ crash.*.log
 # Terraform plan files
 *.tfplan
 
-# Terraoform override files
+# Terraform override files
 override.tf
 override.tf.json
 *_override.tf
 *_override.tf.json
+
+# Drawio bkp files
+*.bkp

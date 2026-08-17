@@ -1,26 +1,26 @@
 <mxfile host="Electron">
   <diagram name="Page-1" id="mzeFFA249T2rnnhLOna8">
-    <mxGraphModel dx="1341" dy="841" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1376" dy="1014" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="QoG5f_3CygdIoVx9raOm-1" parent="1" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;" value="Deployment Process" vertex="1">
-          <mxGeometry height="998" width="980" x="40" y="40" as="geometry" />
+          <mxGeometry height="1040" width="990" x="40" y="40" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-3" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;align=center;" value="Local Dev" vertex="1">
-          <mxGeometry height="978" width="160" y="20" as="geometry" />
+          <mxGeometry height="1020" width="160" y="20" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-14" parent="QoG5f_3CygdIoVx9raOm-3" style="rounded=1;whiteSpace=wrap;html=1;" value="Write code" vertex="1">
           <mxGeometry height="60" width="120" x="20" y="60" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-4" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;container=0;" value="Github" vertex="1">
-          <mxGeometry height="978" width="160" x="160" y="20" as="geometry" />
+          <mxGeometry height="1020" width="160" x="160" y="20" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-17" parent="QoG5f_3CygdIoVx9raOm-4" style="rounded=1;whiteSpace=wrap;html=1;" value="Push code on Main branch" vertex="1">
           <mxGeometry height="60" width="120" x="20" y="60" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-2" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;" value="Github Actions P1" vertex="1">
-          <mxGeometry height="978" width="160" x="320" y="20" as="geometry" />
+          <mxGeometry height="1020" width="160" x="320" y="20" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-24" edge="1" parent="QoG5f_3CygdIoVx9raOm-2" source="QoG5f_3CygdIoVx9raOm-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QoG5f_3CygdIoVx9raOm-23" value="">
           <mxGeometry relative="1" as="geometry" />
@@ -50,19 +50,40 @@
           <mxGeometry height="60" width="120" x="20" y="540" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-13" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;" value="Github Actions P2" vertex="1">
-          <mxGeometry height="978" width="180" x="480" y="20" as="geometry" />
+          <mxGeometry height="1020" width="180" x="480" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-2" edge="1" parent="QoG5f_3CygdIoVx9raOm-13" source="QoG5f_3CygdIoVx9raOm-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="AcqFbkVQvD0THNTaR14Q-1" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-33" parent="QoG5f_3CygdIoVx9raOm-13" style="whiteSpace=wrap;html=1;rounded=1;" value="Define OS Type" vertex="1">
           <mxGeometry height="60" width="120" x="30" y="640" as="geometry" />
         </mxCell>
-        <mxCell id="QoG5f_3CygdIoVx9raOm-12" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;" value="Azure Container Registry" vertex="1">
-          <mxGeometry height="978" width="160" x="660" y="20" as="geometry" />
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-4" edge="1" parent="QoG5f_3CygdIoVx9raOm-13" source="AcqFbkVQvD0THNTaR14Q-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="AcqFbkVQvD0THNTaR14Q-3" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="QoG5f_3CygdIoVx9raOm-31" parent="QoG5f_3CygdIoVx9raOm-12" style="whiteSpace=wrap;html=1;rounded=1;" value="Store imahe in registry" vertex="1">
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-1" parent="QoG5f_3CygdIoVx9raOm-13" style="whiteSpace=wrap;html=1;rounded=1;" value="Login to Azure" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-6" edge="1" parent="QoG5f_3CygdIoVx9raOm-13" source="AcqFbkVQvD0THNTaR14Q-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="AcqFbkVQvD0THNTaR14Q-5" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-3" parent="QoG5f_3CygdIoVx9raOm-13" style="whiteSpace=wrap;html=1;rounded=1;" value="Deploy Container Apps" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-5" parent="QoG5f_3CygdIoVx9raOm-13" style="whiteSpace=wrap;html=1;rounded=1;" value="Stop" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="QoG5f_3CygdIoVx9raOm-12" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;" value="Azure Container Registry" vertex="1">
+          <mxGeometry height="1020" width="170" x="660" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="QoG5f_3CygdIoVx9raOm-31" parent="QoG5f_3CygdIoVx9raOm-12" style="whiteSpace=wrap;html=1;rounded=1;" value="Store image in registry" vertex="1">
           <mxGeometry height="60" width="120" x="20" y="540" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-11" parent="QoG5f_3CygdIoVx9raOm-1" style="swimlane;startSize=20;html=1;" value="Azure Container Apps" vertex="1">
-          <mxGeometry height="978" width="160" x="820" y="20" as="geometry" />
+          <mxGeometry height="1020" width="160" x="830" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-7" parent="QoG5f_3CygdIoVx9raOm-11" style="whiteSpace=wrap;html=1;rounded=1;" value="Store image in registry" vertex="1">
+          <mxGeometry height="60" width="120" x="30" y="840" as="geometry" />
         </mxCell>
         <mxCell id="QoG5f_3CygdIoVx9raOm-18" edge="1" parent="QoG5f_3CygdIoVx9raOm-1" source="QoG5f_3CygdIoVx9raOm-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="QoG5f_3CygdIoVx9raOm-17" value="">
           <mxGeometry relative="1" as="geometry" />
@@ -79,6 +100,9 @@
               <mxPoint x="400" y="690" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="AcqFbkVQvD0THNTaR14Q-8" edge="1" parent="QoG5f_3CygdIoVx9raOm-1" source="AcqFbkVQvD0THNTaR14Q-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="AcqFbkVQvD0THNTaR14Q-7" value="">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
