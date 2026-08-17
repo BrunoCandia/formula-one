@@ -10,6 +10,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Get Connection String
 var mssqlConn = builder.Configuration.GetConnectionString("DefaultConnectionMsSql");
+
+Console.WriteLine(
+    $"Connection string configured: {!string.IsNullOrWhiteSpace(mssqlConn)}");
+
+if (!string.IsNullOrWhiteSpace(mssqlConn))
+{
+    Console.WriteLine(
+    $"Connection string configured: mssqlConn");    
+}
+
+Console.WriteLine(
+    $"Starts with Server=: {mssqlConn?.StartsWith("Server=")}");
    
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(mssqlConn));
