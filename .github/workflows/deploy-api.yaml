@@ -62,7 +62,8 @@ jobs:
           ACR_SERVER: ${{ vars.ACR_SERVER }}
         with:
           registryUrl: ${{ vars.ACR_SERVER }}
-          imageToDeploy: $ACR_SERVER/formula-one-app:$IMAGE_TAG
+          imageToDeploy: '${{ env.ACR_SERVER }}/formula-one-app:${{ env.IMAGE_TAG }}'
+          # imageToDeploy: $ACR_SERVER/formula-one-app:$IMAGE_TAG
           targetPort: 8080
           ingress: external
           containerAppName: formula-one-system-dev-aca
