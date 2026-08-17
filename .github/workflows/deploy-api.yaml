@@ -33,4 +33,12 @@ jobs:
         id: vars
         run: |
           calculatedSha=$(git rev-parse --short ${{ github.sha }})
-          echo "::set-output name=sha::$calculatedSha"
+          echo "::set-output name=short_sha::$calculatedSha"
+
+      - name: Build and Push Docker image to ACR
+        env:
+          ACR_REGISTRY: ${{ vars.ACR_SERVER }}
+          IMAGE_TAG: ${{ steps.vars.outputs.short_sha }}
+        run: |
+          docker build -f FormulaOne.Dockerfile -t $ACR_REGISTRY/formula-one-app:$IMAGE_TAG   -t $ACR_REGISTRY/formula-one-app:latest .
+          docker push $ACR_REGISTRY/formula-one-app --all-tags
