@@ -14,6 +14,7 @@ jobs:
 
     steps:
       - name: Checkout code
+        id: github
         uses: actions/checkout@v3
 
       - name: Set up .NET
@@ -27,3 +28,9 @@ jobs:
           login-server: ${{ vars.ACR_SERVER }}
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
+
+      - name: SHA of the commit
+        id: vars
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "::set-output name=sha::$calculatedSha"
