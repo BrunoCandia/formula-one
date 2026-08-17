@@ -60,7 +60,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ needs.build-and-deploy.outputs.short_sha }}
           ACR_SERVER: ${{ vars.ACR_SERVER }}
-          DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
+          # DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
         with:
           registryUrl: ${{ vars.ACR_SERVER }}
           imageToDeploy: '${{ env.ACR_SERVER }}/formula-one-app:${{ env.IMAGE_TAG }}'
@@ -70,4 +70,23 @@ jobs:
           containerAppName: formula-one-system-dev-aca
           containerAppEnvironment: formula-one-system-dev-acae
           resourceGroup: formula-one-system-dev-rg
-          environmentVariables: ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 ConnectionStrings__DefaultConnectionMsSql=$DATABASE_CONNECTION_STRING
+          # environmentVariables: ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 ConnectionStrings__DefaultConnectionMsSql=$DATABASE_CONNECTION_STRING
+
+      - name: Set database secret
+        env:
+          DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
+        run: |
+          az containerapp secret set \
+            --name formula-one-system-dev-aca \
+            --resource-group formula-one-system-dev-rg \
+            --secrets database-connection-string="$DATABASE_CONNECTION_STRING"
+
+      - name: Configure Container App
+        run: |
+          az containerapp update \
+            --name formula-one-system-dev-aca \
+            --resource-group formula-one-system-dev-rg \
+            --set-env-vars \
+              ASPNETCORE_ENVIRONMENT=Development \
+              ASPNETCORE_URLS=http://+:8080 \
+              ConnectionStrings__DefaultConnectionMsSql=secretref:database-connection-string
