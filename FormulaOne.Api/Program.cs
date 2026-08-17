@@ -17,7 +17,7 @@ Console.WriteLine(
 if (!string.IsNullOrWhiteSpace(mssqlConn))
 {
     Console.WriteLine(
-    $"Connection string configured: mssqlConn");    
+    $"Connection string configured: {mssqlConn}");    
 }
 
 Console.WriteLine(
