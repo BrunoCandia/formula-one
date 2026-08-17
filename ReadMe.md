@@ -13,3 +13,9 @@ az ad sp create-for-rbac `
   --output json
 
 - Create a repository secret in Github with the name "AZURE_CREDENTIALS" and the value is the output of the previous command
+
+# If 'terraform destroy' was executed then these needs to be updated in Github:
+
+vars.ACR_SERVER
+secrets.ACR_USERNAME
+secrets.ACR_PASSWORD
