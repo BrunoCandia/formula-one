@@ -60,7 +60,7 @@ jobs:
         env:
           IMAGE_TAG: ${{ needs.build-and-deploy.outputs.short_sha }}
           ACR_SERVER: ${{ vars.ACR_SERVER }}
-          DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
+          # DATABASE_CONNECTION_STRING: ${{ secrets.DATABASE_CONNECTION_STRING }}
         with:
           registryUrl: ${{ vars.ACR_SERVER }}
           imageToDeploy: '${{ env.ACR_SERVER }}/formula-one-app:${{ env.IMAGE_TAG }}'
@@ -71,4 +71,6 @@ jobs:
           containerAppEnvironment: formula-one-system-dev-acae
           resourceGroup: formula-one-system-dev-rg
           environmentVariables: |
-            ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://+:8080 ConnectionStrings__DefaultConnectionMsSql=$DATABASE_CONNECTION_STRING
+            ASPNETCORE_ENVIRONMENT=Development
+            ASPNETCORE_URLS=http://+:8080
+            ConnectionStrings__DefaultConnectionMsSql=${{ secrets.DATABASE_CONNECTION_STRING }}
