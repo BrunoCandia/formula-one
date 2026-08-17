@@ -32,4 +32,19 @@ resource "azurerm_container_app" "container_app" {
     environment = var.environment
     src = var.src_key
   }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  registry {
+    server   = azurerm_container_registry.acr.login_server
+    identity = "System"
+  }
+}
+
+resource "azurerm_role_assignment" "container_app_acr_pull" {
+  scope                = azurerm_container_registry.acr.id
+  role_definition_name = "AcrPull"
+  principal_id         = azurerm_container_app.container_app.identity[0].principal_id
 }
