@@ -11,19 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Get Connection String
 var mssqlConn = builder.Configuration.GetConnectionString("DefaultConnectionMsSql");
 
-Console.WriteLine($"Connection string exists: {!string.IsNullOrWhiteSpace(mssqlConn)}");
-Console.WriteLine($"Connection string length: {mssqlConn?.Length}");
+// Console.WriteLine($"Connection string exists: {!string.IsNullOrWhiteSpace(mssqlConn)}");
+// Console.WriteLine($"Connection string length: {mssqlConn?.Length}");
 
-if (!string.IsNullOrWhiteSpace(mssqlConn))
-{
-    var builderConnectionString = new Microsoft.Data.SqlClient.SqlConnectionStringBuilder(mssqlConn);
+// if (!string.IsNullOrWhiteSpace(mssqlConn))
+// {
+//     var builderConnectionString = new Microsoft.Data.SqlClient.SqlConnectionStringBuilder(mssqlConn);
 
-    Console.WriteLine($"SQL Server: {builderConnectionString.DataSource}");
-    Console.WriteLine($"Database: {builderConnectionString.InitialCatalog}");
-    Console.WriteLine($"User ID: {builderConnectionString.UserID}");
-    Console.WriteLine($"Encrypt: {builderConnectionString.Encrypt}");
-    Console.WriteLine($"TrustServerCertificate: {builderConnectionString.TrustServerCertificate}");
-}
+//     Console.WriteLine($"SQL Server: {builderConnectionString.DataSource}");
+//     Console.WriteLine($"Database: {builderConnectionString.InitialCatalog}");
+//     Console.WriteLine($"User ID: {builderConnectionString.UserID}");
+//     Console.WriteLine($"Encrypt: {builderConnectionString.Encrypt}");
+//     Console.WriteLine($"TrustServerCertificate: {builderConnectionString.TrustServerCertificate}");
+// }
    
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(mssqlConn));
