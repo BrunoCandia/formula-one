@@ -28,3 +28,7 @@ az ad sp create-for-rbac `
   --scopes /subscriptions/ed0eed35-e487-434c-8eed-1f15d8b0909f/resourceGroups/formula-one-system-dev-rg `
   --json-auth `
   --output json
+
+  # Database Connection String format:
+
+  Data Source=formula-one-system-dev-sqlserver.database.windows.net;Initial Catalog=formula-one-system-dev-Formulaone;User ID={your_user};Password={your_password};Encrypt=True;TrustServerCertificate=True;
