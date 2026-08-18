@@ -3,6 +3,11 @@
 - In other terminal go to inside FormulaOne.DataService folder
 - Run the command: dotnet ef database update --startup-project ../FormulaOne.Api
 
+# Execute Terraform from a local directory, run:
+
+- terraform plan
+- terraform apply
+
 # Create a Service Principal (with Powershell) in Azure to connect to Azure from Github
 
 az ad sp create-for-rbac `
