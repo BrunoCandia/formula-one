@@ -6,7 +6,7 @@
 # Create a Service Principal (with Powershell) in Azure to connect to Azure from Github
 
 az ad sp create-for-rbac `
-  --name github-terraform-deployer-formula-one `  
+  --name github-terraform-deployer-formula-one `
   --role Contributor `
   --scopes /subscriptions/ed0eed35-e487-434c-8eed-1f15d8b0909f/resourceGroups/formula-one-system-dev-rg `
   --json-auth `
@@ -19,3 +19,12 @@ az ad sp create-for-rbac `
 vars.ACR_SERVER
 secrets.ACR_USERNAME
 secrets.ACR_PASSWORD
+
+# If 'terraform destroy' was executed then these needs to be created: Create a Service Principal (with Powershell) in Azure to connect to Azure from Github
+
+az ad sp create-for-rbac `
+  --name github-terraform-deployer-formula-one `
+  --role Contributor `
+  --scopes /subscriptions/ed0eed35-e487-434c-8eed-1f15d8b0909f/resourceGroups/formula-one-system-dev-rg `
+  --json-auth `
+  --output json
